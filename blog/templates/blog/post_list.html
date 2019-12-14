@@ -1,4 +1,10 @@
 {% extends  'blog/index.html' %}
+{% block title %}
+
+  <title>Список постов</title>
+
+{% endblock title %}
+
 {% block content %}
 {% for post in post_list %}
 <li>
