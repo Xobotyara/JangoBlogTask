@@ -13,15 +13,14 @@ class Blogger(models.Model):
     
     def __str__(self):
         return '{0}, {1}'.format(self.sirname, self.name)
-    
-    
+
 
 class Post(models.Model):
     slug = models.SlugField(primary_key=True, max_length=150, unique=True)
-    title = models.CharField(max_length=100)
-    body = models.TextField(max_length=1000)
+    title = models.CharField(max_length=150, db_index=True)
+    body = models.TextField(blank=True, db_index=True)
     publish_date = models.DateTimeField(auto_now_add=True)
-    blogger = models.ForeignKey(Blogger, on_delete=models.CASCADE)
+    blogger = models.ForeignKey('Blogger', default=1, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse('post_detail_url', args=[self.slug])

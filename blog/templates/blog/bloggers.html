@@ -2,17 +2,11 @@
 
 {% block content %}
 {% for blogger in blogger_list %}
-<div class="row mb-4">
-  <div class="offset-2 col-sm-6 col-md-4">
-
       <div class="caption">
         <h3><a href="#">{{ blogger.sirname }}, {{ blogger.name }}</a></h3>
         <p>{{ blogger.birth_date }}</p>
         <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default"
             role="button">Button</a></p>
       </div>
-
-  </div>
-</div>
 {% endfor %}
 {% endblock %}
